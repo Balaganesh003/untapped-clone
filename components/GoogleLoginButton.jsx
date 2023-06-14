@@ -11,7 +11,7 @@ const GoogleLoginButton = () => {
           alt="Google Logo"
           width={16}
           height={16}
-          className="absolute left-[1rem] top-[0.25rem]"
+          className="absolute top-[0.25rem]"
         />
         <span className="ml-2 align-center text-sm leading-[130%] font-semibold">
           Continue with Google

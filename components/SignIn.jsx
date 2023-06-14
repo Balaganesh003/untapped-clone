@@ -4,6 +4,8 @@ import GoogleLoginButton from './GoogleLoginButton';
 import EmailField from './EmailField';
 import SignUpButton from './SignUpButton';
 import PasswordFieldSignIn from './PasswordFieldSignIn';
+import Image from 'next/image';
+import Logo from '../assets/brand-logo-combined.svg';
 
 const SignUp = ({ setIsSignUp }) => {
   const [Email, setEmail] = useState('');
@@ -33,8 +35,14 @@ const SignUp = ({ setIsSignUp }) => {
 
   return (
     <div className="flex min-h-screen w-full h-full">
-      <div className=" flex w-full mobile-md:w-auto ">
-        <div className="bg-white w-full mobile-md:w-[420px]  h-full pt-[6.25rem] pb-[2.75rem] px-6">
+      <div className=" flex w-full mobile-md:w-auto relative">
+        {/* Logo */}
+        <div className=" top-10 z-10 absolute left-10">
+          <Link href="/">
+            <Image src={Logo} width={180} height={150} alt="Logo" />
+          </Link>
+        </div>
+        <div className="bg-white w-full mobile-md:w-[420px]  h-full pt-[6.25rem] pb-[2.75rem] px-11 ">
           <h1 className="text-primary-text text-[3rem] font-semibold leading-[125%]">
             Log In
           </h1>
@@ -90,7 +98,7 @@ const SignUp = ({ setIsSignUp }) => {
           </p>
         </div>
       </div>
-      <div className="hidden mobile-md:flex mobile-md:w-full  bg-gray-500 ">
+      <div className="hidden mobile-md:flex mobile-md:w-full  bg-white ">
         <div className="w-full h-full bg-center bg-signin-banner"></div>
       </div>
     </div>

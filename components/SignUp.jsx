@@ -5,6 +5,8 @@ import InputField from './InputField';
 import EmailField from './EmailField';
 import PasswordField from './PasswordField';
 import SignUpButton from './SignUpButton';
+import BrandLogo from '../assets/brand-logo-combined.svg';
+import Image from 'next/image';
 
 const SignUp = ({ setIsSignUp }) => {
   const [FirstName, setFirstName] = useState('');
@@ -35,8 +37,13 @@ const SignUp = ({ setIsSignUp }) => {
 
   return (
     <div className="flex min-h-screen w-full h-full">
-      <div className="lg:w-[65%]  flex justify-center">
-        <div className="bg-white w-full mobile-md:w-[420px] h-full pt-[6.25rem] pb-[2.75rem] px-6">
+      <div className="lg:w-[65%]  flex justify-center relative">
+        <div className=" top-10 z-10 absolute left-11">
+          <Link href="/">
+            <Image src={BrandLogo} width={180} height={150} alt="Logo" />
+          </Link>
+        </div>
+        <div className="bg-white w-full  mobile-md:w-[420px] h-full pt-[6.25rem] pb-[2.75rem] px-6">
           <h1 className="text-primary-text text-[3rem] font-semibold leading-[125%]">
             Sign Up
           </h1>
@@ -121,7 +128,7 @@ const SignUp = ({ setIsSignUp }) => {
           </p>
         </div>
       </div>
-      <div className="hidden mobile-md:flex mobile-md:w-full lg:w-[35%] bg-gray-500 ">
+      <div className="hidden mobile-md:flex mobile-md:w-full lg:w-[35%] bg-white ">
         <div className="w-full h-full bg-bottom-left-signup bg-signup-banner"></div>
       </div>
     </div>
