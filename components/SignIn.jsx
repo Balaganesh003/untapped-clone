@@ -35,7 +35,7 @@ const SignUp = ({ setIsSignUp }) => {
 
   return (
     <div className="flex min-h-screen w-full h-full">
-      <div className=" flex w-full mobile-md:w-auto relative">
+      <div className=" flex w-full mobile-md:w-auto relative items-center h-full min-h-screen">
         {/* Logo */}
         <div className=" top-10 z-10 absolute left-10">
           <Link href="/">

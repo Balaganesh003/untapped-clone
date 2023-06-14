@@ -30,7 +30,7 @@ module.exports = {
       },
       screens: {
         'mobile-md': '440px',
-        'mobile-lg': '510px',
+        'mobile-lg': '512px',
       },
     },
   },

@@ -37,13 +37,13 @@ const SignUp = ({ setIsSignUp }) => {
 
   return (
     <div className="flex min-h-screen w-full h-full">
-      <div className="lg:w-[65%]  flex justify-center relative">
-        <div className=" top-10 z-10 absolute left-11">
+      <div className="lg:w-[65%]  flex justify-center relative items-center h-full min-h-screen">
+        <div className=" lg:top-10 z-10 absolute lg:left-11 left-6 top-5">
           <Link href="/">
             <Image src={BrandLogo} width={180} height={150} alt="Logo" />
           </Link>
         </div>
-        <div className="bg-white w-full  mobile-md:w-[420px] h-full pt-[6.25rem] pb-[2.75rem] px-6">
+        <div className="bg-white w-full  mobile-md:w-[420px] h-full mt-1  pt-[6.25rem] pb-[2.75rem] px-6">
           <h1 className="text-primary-text text-[3rem] font-semibold leading-[125%]">
             Sign Up
           </h1>
