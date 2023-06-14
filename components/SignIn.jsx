@@ -42,7 +42,7 @@ const SignUp = ({ setIsSignUp }) => {
             <Image src={Logo} width={180} height={150} alt="Logo" />
           </Link>
         </div>
-        <div className="bg-white w-full mobile-md:w-[420px]  h-full pt-[6.25rem] pb-[2.75rem] px-11 ">
+        <div className="bg-white w-full mobile-md:w-[420px]  h-full pt-[6.25rem] pb-[2.75rem]  px-6 mobile-lg:px-11 ">
           <h1 className="text-primary-text text-[3rem] font-semibold leading-[125%]">
             Log In
           </h1>
