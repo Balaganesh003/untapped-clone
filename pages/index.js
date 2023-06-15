@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
 import { Inter } from 'next/font/google';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,22 +14,14 @@ export default function Home() {
 
   return (
     <div className={`${inter.className} `}>
-      <div className="w-full bg-primary">
-        {/* NavBar */}
-        <NavBar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
-        {/* Sidebar */}
-        <div className="w-full flex lg:max-h-screen ">
-          <div className=" w-fit overflow-y-scroll flex-shrink-0 scrollbar-hide ">
-            <SideBar
-              setShowSideBar={setShowSideBar}
-              showSideBar={showSideBar}
-            />
-          </div>
-          {/* Main */}
-          <div className="w-full  lg:overflow-y-scroll">
-            <JobsAndCompanies />
-          </div>
-        </div>
+      <div className="w-full bg-primary flex items-center flex-col h-full justify-center">
+        <p className="text-3xl text-primary-text">Welcome to Jobify</p>
+        <Link href="/auth" className="block">
+          <p className="text-3xl text-link">SignUp</p>
+        </Link>
+        <Link href="/jobs" className="block">
+          <p className="text-3xl text-link">Jobs</p>
+        </Link>
       </div>
     </div>
   );
