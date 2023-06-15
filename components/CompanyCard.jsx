@@ -1,13 +1,4 @@
 import React from 'react';
-import JobsAndCompanies from '@/components/JobsAndCompanies';
-import CanalLogo from '@/assets/CanalLogo.png';
-import DegreedLogo from '@/assets/DegreedLogo.png';
-import DiscordLogo from '@/assets/DiscordLogo.jpeg';
-import ListLogo from '@/assets/ListLogo.svg';
-import ClockLogo from '@/assets/ClockLogo.svg';
-import BookmarkLogo from '@/assets/BookmarkLogo.svg';
-import BlackTick from '@/assets/BlackTick.svg';
-import JobsCard from '@/components/JobsCard';
 
 const JobsFilter = [
   {
@@ -142,17 +133,8 @@ const JobsList = [
   },
 ];
 
-const Jobs = () => {
-  return (
-    <div>
-      <JobsAndCompanies
-        DropdownList={RecommendedDropdown}
-        Filters={JobsFilter}
-        CardList={JobsList}
-        CardName={JobsCard}
-      />
-    </div>
-  );
+const CompanyCard = () => {
+  return <div>CompanyCard</div>;
 };
 
-export default Jobs;
+export default CompanyCard;

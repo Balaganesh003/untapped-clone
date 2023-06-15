@@ -1,91 +1,14 @@
 import React, { useEffect } from 'react';
 import FilterCard from '@/components/FilterCard';
 import { useState } from 'react';
-import ClockLogo from '@/assets/ClockLogo.svg';
-import BookmarkLogo from '@/assets/BookmarkLogo.svg';
-import BlackTick from '@/assets/BlackTick.svg';
 import Image from 'next/image';
-import ListLogo from '@/assets/ListLogo.svg';
 import BlackDownTriangle from '@/assets/BlackDownTriangle.svg';
 import CrossLogoWhite from '@/assets/crossLogoWhite.svg';
 import SearchLogo from '@/assets/SearchLogo.svg';
-import JobsCard from '@/components/JobsCard';
 
-const JobsFilter = [
-  {
-    id: 1,
-    name: 'Location',
-  },
-  {
-    id: 2,
-    name: 'Stage',
-  },
-  {
-    id: 3,
-    name: 'Industry',
-  },
-  {
-    id: 4,
-    name: 'Company',
-  },
-  {
-    id: 5,
-    name: 'Job Title',
-  },
-  {
-    id: 6,
-    name: 'Experience Level',
-  },
-  {
-    id: 7,
-    name: 'ERGs',
-  },
-  {
-    id: 8,
-    name: 'Values',
-  },
-  {
-    id: 9,
-    name: 'Remote Culture',
-  },
-  {
-    id: 10,
-    name: 'Benefits',
-  },
-  {
-    id: 11,
-    name: 'Salary',
-  },
-];
-
-const RecommendedDropdown = [
-  {
-    id: 1,
-    name: 'Recommended',
-    logo: ListLogo,
-  },
-  {
-    id: 2,
-    name: 'Newest',
-    logo: ClockLogo,
-  },
-  {
-    id: 3,
-    name: 'Applied',
-    logo: BlackTick,
-  },
-  {
-    id: 4,
-    name: 'Saved',
-    logo: BookmarkLogo,
-  },
-];
-
-const JobsAndCompanies = () => {
+const JobsAndCompanies = ({ DropdownList, Filters, CardList, CardName }) => {
   const [isRecommended, setIsRecommended] = useState(false);
-  const [selectedDropdown, setSelectedDropdown] = useState(
-    RecommendedDropdown[0]
-  );
+  const [selectedDropdown, setSelectedDropdown] = useState(DropdownList[0]);
   const [searchText, setSearchText] = useState('');
   const [showClearLogo, setShowClearLogo] = useState(false);
 
@@ -106,7 +29,7 @@ const JobsAndCompanies = () => {
     <div>
       <div className="h-full w-full flex sticky top-0   bg-white  items-center  z-10 border-b border-gray-border ">
         <div className=" w-full overflow-x-auto sm:max-w-[62.5rem]  h-full mx-auto  flex items-center flex-nowrap sm:flex-wrap ">
-          {JobsFilter.map((filter) => (
+          {Filters.map((filter) => (
             <FilterCard key={filter.id} name={filter.name} />
           ))}
           <div className="px-[14.5px] ml-auto py-[6px] my-[4px] mr-[2px] border border-black rounded w-fit h-[35px] flex-shrink-0">
@@ -128,7 +51,7 @@ const JobsAndCompanies = () => {
             {isRecommended && (
               <div className="bg-white w-[150px] absolute top-[50px] sm:top-[90px] right-2  py-1 rounded shadow-lg ">
                 <div className="">
-                  {RecommendedDropdown.map((dropdown) => (
+                  {DropdownList.map((dropdown) => (
                     <div
                       onClick={() => [
                         setSelectedDropdown(dropdown),
@@ -183,16 +106,18 @@ const JobsAndCompanies = () => {
           <p className="uppercase text-[0.8125rem] leading-[1.125rem] text-secondary-text font-medium mb-[15px]">
             YOUR TOP JOB MATCHES ON UNTAPPED
           </p>
-          <div className="grid grid-cols-1 mobile-lg:grid-cols-3 gap-[0.9375rem] ">
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
-            <JobsCard />
+          <div className="grid grid-cols-1 mobile-lg:grid-cols-3 gap-[0.9375rem]  ">
+            {CardList.map((card) => (
+              <CardName
+                key={card?.id}
+                role={card?.role}
+                company={card?.company}
+                location={card?.location}
+                type={card?.type}
+                logo={card?.logo}
+                no_of_applicants={card?.no_of_applicants}
+              />
+            ))}
           </div>
         </div>
       </div>
