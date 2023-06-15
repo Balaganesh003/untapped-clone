@@ -17,6 +17,7 @@ module.exports = {
         'secondary-button': '#DAF996',
         'text-red': '#cc3341',
         'light-gray': '#DADADA',
+        'light-red': '#FFF9FA',
       },
       backgroundImage: {
         'signup-banner': "url('../assets/signupbanner.png')",
