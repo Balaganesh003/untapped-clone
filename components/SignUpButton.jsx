@@ -1,5 +1,5 @@
 import React from 'react';
-// fafafa dadada
+
 const SignUpButton = ({ isAllValid, label }) => {
   return (
     <button
