@@ -153,7 +153,7 @@ const JobsAndCompanies = () => {
         </div>
       </div>
 
-      <div className="max-w-[62.5rem] w-full min-h-screen h-full mx-auto bg-orange-100 mt-5 z-0">
+      <div className="max-w-[62.5rem] w-full min-h-screen h-full mx-auto  mt-5 z-0">
         {/* Search Field */}
         <div className="w-full mobile-lg:px-3 lg:px-0 h-[50px] rounded-md relative z-0 mb-[15px]">
           <input
@@ -184,6 +184,12 @@ const JobsAndCompanies = () => {
             YOUR TOP JOB MATCHES ON UNTAPPED
           </p>
           <div className="grid grid-cols-1 mobile-lg:grid-cols-3 gap-[0.9375rem] ">
+            <JobsCard />
+            <JobsCard />
+            <JobsCard />
+            <JobsCard />
+            <JobsCard />
+            <JobsCard />
             <JobsCard />
             <JobsCard />
             <JobsCard />

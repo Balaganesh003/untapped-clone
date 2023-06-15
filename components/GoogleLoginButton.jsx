@@ -4,7 +4,7 @@ import GoogleLogo from '@/assets/GoogleSSO.png';
 
 const GoogleLoginButton = () => {
   return (
-    <button className="w-full h-[40px]  px-4 rounded outline outline-[1px]  transform transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-sm  ease-in-out-expo">
+    <button className="w-full h-[40px]  px-4 rounded outline outline-[1px]  transform transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-button ease-in-out-expo">
       <div className=" relative  ">
         <Image
           src={GoogleLogo}
