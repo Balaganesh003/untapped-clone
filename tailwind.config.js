@@ -13,6 +13,8 @@ module.exports = {
         link: '#3365e6',
         'primary-text': '#0e0e0e',
         primary: '#FAFAFA',
+        'gray-hover': '#f2f2f2',
+        'gray-border': '#dadada',
         'secondary-text': '#666',
         'secondary-button': '#DAF996',
         'text-red': '#cc3341',
@@ -33,7 +35,10 @@ module.exports = {
         'mobile-md': '440px',
         'mobile-lg': '512px',
       },
+      boxShadow: {
+        nav: '0 2px 8px rgba(0, 0, 0, 0.16)',
+      },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };

@@ -13,14 +13,19 @@ export default function Home() {
 
   return (
     <div className={`${inter.className} `}>
-      <div className="w-full">
+      <div className="w-full bg-primary">
         {/* NavBar */}
         <NavBar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
         {/* Sidebar */}
-        <div className="w-full flex">
-          <SideBar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
+        <div className="w-full flex lg:max-h-screen ">
+          <div className=" w-fit overflow-y-scroll flex-shrink-0 scrollbar-hide ">
+            <SideBar
+              setShowSideBar={setShowSideBar}
+              showSideBar={showSideBar}
+            />
+          </div>
           {/* Main */}
-          <div className="bg-gray-400  w-full">
+          <div className="w-full  lg:overflow-y-scroll">
             <JobsAndCompanies />
           </div>
         </div>
