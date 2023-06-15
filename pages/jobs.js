@@ -150,6 +150,8 @@ const Jobs = () => {
         Filters={JobsFilter}
         CardList={JobsList}
         CardName={JobsCard}
+        Heading="YOUR TOP JOB MATCHES ON UNTAPPED"
+        isDropDown={true}
       />
     </div>
   );

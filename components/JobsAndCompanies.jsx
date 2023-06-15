@@ -6,11 +6,20 @@ import BlackDownTriangle from '@/assets/BlackDownTriangle.svg';
 import CrossLogoWhite from '@/assets/crossLogoWhite.svg';
 import SearchLogo from '@/assets/SearchLogo.svg';
 
-const JobsAndCompanies = ({ DropdownList, Filters, CardList, CardName }) => {
-  const [isRecommended, setIsRecommended] = useState(false);
-  const [selectedDropdown, setSelectedDropdown] = useState(DropdownList[0]);
+const JobsAndCompanies = ({
+  DropdownList,
+  Filters,
+  CardList,
+  CardName,
+  Heading,
+  isDropDown,
+}) => {
+  const [selectedDropdown, setSelectedDropdown] = useState(
+    isDropDown && DropdownList[0]
+  );
   const [searchText, setSearchText] = useState('');
   const [showClearLogo, setShowClearLogo] = useState(false);
+  const [isRecommended, setIsRecommended] = useState(false);
 
   useEffect(() => {
     if (searchText) {
@@ -32,47 +41,50 @@ const JobsAndCompanies = ({ DropdownList, Filters, CardList, CardName }) => {
           {Filters.map((filter) => (
             <FilterCard key={filter.id} name={filter.name} />
           ))}
-          <div className="px-[14.5px] ml-auto py-[6px] my-[4px] mr-[2px] border border-black rounded w-fit h-[35px] flex-shrink-0">
-            <p
-              onClick={() => setIsRecommended(!isRecommended)}
-              className="text-[0.875rem] leading-[150%] font-medium text-primary-text captilize cursor-pointer flex items-center gap-[7px] ">
-              <Image
-                src={selectedDropdown.logo}
-                alt="List Logo"
-                className="w-[14px] h-[14px] "
-              />
-              <span>{selectedDropdown.name}</span>
-              <Image
-                src={BlackDownTriangle}
-                alt="Black Down Triangle"
-                className="w-[14px] h-[14px] "
-              />
-            </p>
-            {isRecommended && (
-              <div className="bg-white w-[150px] absolute top-[50px] sm:top-[90px] right-2  py-1 rounded shadow-lg ">
-                <div className="">
-                  {DropdownList.map((dropdown) => (
-                    <div
-                      onClick={() => [
-                        setSelectedDropdown(dropdown),
-                        setIsRecommended(false),
-                      ]}
-                      key={dropdown.id * 99}
-                      className="flex items-center gap-[7px] px-[14px] py-[5px] cursor-pointer hover:bg-gray-hover w-full ">
-                      <Image
-                        src={dropdown.logo}
-                        alt="Black Tick"
-                        className="w-[16px] h-[16px] "
-                      />
-                      <span className="text-[0.875rem] leading-[22px]">
-                        {dropdown.name}
-                      </span>
-                    </div>
-                  ))}
+
+          {isDropDown && (
+            <div className="px-[14.5px] ml-auto py-[6px] my-[4px] mr-[2px] border border-black rounded w-fit h-[35px] flex-shrink-0">
+              <p
+                onClick={() => setIsRecommended(!isRecommended)}
+                className="text-[0.875rem] leading-[150%] font-medium text-primary-text captilize cursor-pointer flex items-center gap-[7px] ">
+                <Image
+                  src={selectedDropdown.logo}
+                  alt="List Logo"
+                  className="w-[14px] h-[14px] "
+                />
+                <span>{selectedDropdown.name}</span>
+                <Image
+                  src={BlackDownTriangle}
+                  alt="Black Down Triangle"
+                  className="w-[14px] h-[14px] "
+                />
+              </p>
+              {isRecommended && (
+                <div className="bg-white w-[150px] absolute top-[50px] sm:top-[90px] right-2  py-1 rounded shadow-lg ">
+                  <div className="">
+                    {DropdownList.map((dropdown) => (
+                      <div
+                        onClick={() => [
+                          setSelectedDropdown(dropdown),
+                          setIsRecommended(false),
+                        ]}
+                        key={dropdown.id * 99}
+                        className="flex items-center gap-[7px] px-[14px] py-[5px] cursor-pointer hover:bg-gray-hover w-full ">
+                        <Image
+                          src={dropdown.logo}
+                          alt="Black Tick"
+                          className="w-[16px] h-[16px] "
+                        />
+                        <span className="text-[0.875rem] leading-[22px]">
+                          {dropdown.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -104,7 +116,7 @@ const JobsAndCompanies = ({ DropdownList, Filters, CardList, CardName }) => {
         {/* Cards section */}
         <div className="p-[0.9375rem] border border-gray-border rounded bg-white h-full">
           <p className="uppercase text-[0.8125rem] leading-[1.125rem] text-secondary-text font-medium mb-[15px]">
-            YOUR TOP JOB MATCHES ON UNTAPPED
+            {Heading}
           </p>
           <div className="grid grid-cols-1 mobile-lg:grid-cols-3 gap-[0.9375rem]  ">
             {CardList.map((card) => (
@@ -113,9 +125,14 @@ const JobsAndCompanies = ({ DropdownList, Filters, CardList, CardName }) => {
                 role={card?.role}
                 company={card?.company}
                 location={card?.location}
+                remote={card?.remote}
                 type={card?.type}
                 logo={card?.logo}
                 no_of_applicants={card?.no_of_applicants}
+                no_events={card?.no_events}
+                no_jobs={card?.no_jobs}
+                stage={card?.stage}
+                employees={card?.employees}
               />
             ))}
           </div>

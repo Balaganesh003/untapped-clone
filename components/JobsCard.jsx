@@ -41,7 +41,9 @@ const JobsCard = ({
             <div className="mb-3 text-ellipsis text-[0.75rem] leading-[1rem] text-primary-text">
               <span className="captilize">{type}</span>
               <span className="mx-[3px]">•</span>
-              <span className="captilize">{location}</span>
+              <span className="captilize">
+                {location} {`${remote && ' Remote'}`}
+              </span>
             </div>
           </div>
         </div>
