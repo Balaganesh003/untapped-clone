@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
-import ErrorIcon from '../assets/exclamatory.svg';
-import PasswordVisible from '../assets/password-visible.svg';
-import PasswordInvisible from '../assets/password-invisible.svg';
+import ErrorIcon from '@/assets/exclamatory.svg';
+import PasswordVisible from '@/assets/password-visible.svg';
+import PasswordInvisible from '@/assets/password-invisible.svg';
 
 const PasswordFieldSignIn = ({
   label,

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import HamburgerLogo from '../assets/HamBurgerLogo.svg';
-import BrandLogo from '../assets/brand-logo-combined.svg';
+import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
+import BrandLogo from '@/assets/brand-logo-combined.svg';
 import Link from 'next/link';
 
 const NavBar = ({ setShowSideBar, showSideBar }) => {

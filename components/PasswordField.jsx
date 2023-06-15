@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
-import PasswordVisible from '../assets/password-visible.svg';
-import PasswordInvisible from '../assets/password-invisible.svg';
-import RedCross from '../assets/redCross.svg';
-import GreenTick from '../assets/greenTick.svg';
+import PasswordVisible from '@/assets/password-visible.svg';
+import PasswordInvisible from '@/assets/password-invisible.svg';
+import RedCross from '@/assets/redCross.svg';
+import GreenTick from '@/assets/greenTick.svg';
 
 const PasswordField = ({
   label,

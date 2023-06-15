@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchLogo from '../assets/SearchLogo.svg';
+import SearchLogo from '@/assets/SearchLogo.svg';
 import Image from 'next/image';
 
 const SearchBox = ({ search, setSearch }) => {

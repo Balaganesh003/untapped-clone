@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
-import ErrorIcon from '../assets/exclamatory.svg';
+import ErrorIcon from '@/assets/exclamatory.svg';
 
 const InputField = ({
   label,

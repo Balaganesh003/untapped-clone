@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import GoogleLoginButton from './GoogleLoginButton';
-import InputField from './InputField';
-import EmailField from './EmailField';
-import PasswordField from './PasswordField';
-import SignUpButton from './SignUpButton';
-import BrandLogo from '../assets/brand-logo-combined.svg';
+import GoogleLoginButton from '@/components/GoogleLoginButton';
+import InputField from '@/components/InputField';
+import EmailField from '@/components/EmailField';
+import PasswordField from '@/components/PasswordField';
+import SignUpButton from '@/components/SignUpButton';
+import BrandLogo from '@/assets/brand-logo-combined.svg';
 import Image from 'next/image';
 
 const SignUp = ({ setIsSignUp }) => {

@@ -1,22 +1,22 @@
 import React from 'react';
-import BrandLogo from '../assets/brand-logo-combined.svg';
+import BrandLogo from '@/assets/brand-logo-combined.svg';
 import { useState } from 'react';
-import Logo from '../assets/Logo.png';
+import Logo from '@/assets/Logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import HomeLogo from '../assets/HomeLogo.svg';
-import JobsLogo from '../assets/JobsLogo.svg';
-import CompaniesLogo from '../assets/CompaniesLogo.svg';
-import EventsLogo from '../assets/EventsLogo.svg';
-import NotificationLogo from '../assets/Notifications.svg';
-import MikeLogo from '../assets/mike.png';
-import SettingsLogo from '../assets/settings.svg';
-import RemoteWorkLogo from '../assets/remote-work.png';
-import SideBarLinkCard from './SideBarLinkCard';
-import SearchBox from './SearchBox';
-import PlusLogo from '../assets/PlusLogo.svg';
-import AllPostsLogo from '../assets/Community.svg';
-import GeneralAdviceLogo from '../assets/general-advice.png';
+import HomeLogo from '@/assets/HomeLogo.svg';
+import JobsLogo from '@/assets/JobsLogo.svg';
+import CompaniesLogo from '@/assets/CompaniesLogo.svg';
+import EventsLogo from '@/assets/EventsLogo.svg';
+import NotificationLogo from '@/assets/Notifications.svg';
+import MikeLogo from '@/assets/mike.png';
+import SettingsLogo from '@/assets/settings.svg';
+import RemoteWorkLogo from '@/assets/remote-work.png';
+import SideBarLinkCard from '@/components/SideBarLinkCard';
+import SearchBox from '@/components/SearchBox';
+import PlusLogo from '@/assets/PlusLogo.svg';
+import AllPostsLogo from '@/assets/Community.svg';
+import GeneralAdviceLogo from '@/assets/general-advice.png';
 
 const SideBar = ({ showSideBar }) => {
   const [active, setActive] = useState('Home');

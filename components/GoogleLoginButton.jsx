@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import GoogleLogo from '../assets/GoogleSSO.png';
+import GoogleLogo from '@/assets/GoogleSSO.png';
 
 const GoogleLoginButton = () => {
   return (

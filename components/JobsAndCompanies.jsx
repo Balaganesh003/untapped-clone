@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
-import FilterCard from './FilterCard';
+import FilterCard from '@/components/FilterCard';
 import { useState } from 'react';
-import ClockLogo from '../assets/ClockLogo.svg';
-import BookmarkLogo from '../assets/BookmarkLogo.svg';
-import BlackTick from '../assets/BlackTick.svg';
+import ClockLogo from '@/assets/ClockLogo.svg';
+import BookmarkLogo from '@/assets/BookmarkLogo.svg';
+import BlackTick from '@/assets/BlackTick.svg';
 import Image from 'next/image';
-import ListLogo from '../assets/ListLogo.svg';
-import BlackDownTriangle from '../assets/BlackDownTriangle.svg';
-import CrossLogoWhite from '../assets/CrossLogoWhite.svg';
-import SearchLogo from '../assets/SearchLogo.svg';
-import JobsCard from './JobsCard';
+import ListLogo from '@/assets/ListLogo.svg';
+import BlackDownTriangle from '@/assets/BlackDownTriangle.svg';
+import CrossLogoWhite from '@/assets/CrossLogoWhite.svg';
+import SearchLogo from '@/assets/SearchLogo.svg';
+import JobsCard from '@/components/JobsCard';
 
 const JobsFilter = [
   {
