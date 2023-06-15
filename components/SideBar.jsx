@@ -1,14 +1,14 @@
 import React from 'react';
 import BrandLogo from '@/assets/brand-logo-combined.svg';
 import { useState } from 'react';
-import Logo from '@/assets/Logo.png';
+import Logo from '@/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeLogo from '@/assets/HomeLogo.svg';
 import JobsLogo from '@/assets/JobsLogo.svg';
 import CompaniesLogo from '@/assets/CompaniesLogo.svg';
 import EventsLogo from '@/assets/EventsLogo.svg';
-import NotificationLogo from '@/assets/Notifications.svg';
+import NotificationLogo from '@/assets/notifications.svg';
 import MikeLogo from '@/assets/mike.png';
 import SettingsLogo from '@/assets/settings.svg';
 import RemoteWorkLogo from '@/assets/remote-work.png';

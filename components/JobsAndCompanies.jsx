@@ -7,7 +7,7 @@ import BlackTick from '@/assets/BlackTick.svg';
 import Image from 'next/image';
 import ListLogo from '@/assets/ListLogo.svg';
 import BlackDownTriangle from '@/assets/BlackDownTriangle.svg';
-import CrossLogoWhite from '@/assets/CrossLogoWhite.svg';
+import CrossLogoWhite from '@/assets/crossLogoWhite.svg';
 import SearchLogo from '@/assets/SearchLogo.svg';
 import JobsCard from '@/components/JobsCard';
 
