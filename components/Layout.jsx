@@ -17,14 +17,18 @@ const Layout = ({ children }) => {
         <NavBar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
         {/* Sidebar */}
         <div className="w-full flex lg:max-h-screen ">
-          <div className=" w-fit overflow-y-scroll flex-shrink-0 scrollbar-hide ">
+          <div className=" w-fit overflow-y-scroll z-[100] flex-shrink-0 scrollbar-hide shadow-nav">
             <SideBar
               setShowSideBar={setShowSideBar}
               showSideBar={showSideBar}
             />
           </div>
+
           {/* Main */}
-          <main className="w-full  lg:overflow-y-scroll">{children}</main>
+          <main id="main" className="w-full lg:overflow-y-scroll relative">
+            {children}
+            {/* Search and dropdown */}
+          </main>
         </div>
       </div>
     </div>

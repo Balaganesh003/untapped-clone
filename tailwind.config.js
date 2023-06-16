@@ -5,6 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
     extend: {
       colors: {
@@ -21,6 +22,7 @@ module.exports = {
         'text-red': '#cc3341',
         'light-gray': '#DADADA',
         'light-red': '#FFF9FA',
+        dot: '#4bcdbc',
       },
       backgroundImage: {
         'signup-banner': "url('../assets/signupbanner.png')",
@@ -40,6 +42,7 @@ module.exports = {
         nav: '0 2px 8px rgba(0, 0, 0, 0.16)',
         card: '0 2px 10px rgba(45, 42, 61, 0.1)',
         button: '0 1px 4px rgba(0, 0, 0, 0.16)',
+        search: '0 1px 8px rgba(0, 0, 0, 0.16)',
       },
     },
   },

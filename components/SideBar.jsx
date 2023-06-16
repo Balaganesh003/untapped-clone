@@ -30,7 +30,7 @@ const SideBar = ({ showSideBar }) => {
     <div>
       {/* Desktop Navbar */}
       <div
-        className={`hidden lg:block w-[17.5rem]  min-h-screen h-full flex-shrink-0 z-50 bg-white `}>
+        className={`hidden lg:block w-[17.5rem]  min-h-screen h-full flex-shrink-0 z-50 bg-white  `}>
         <div className="px-5 pt-6 ">
           <div className="flex items-center justify-between  ">
             <Link href="/">
@@ -101,7 +101,12 @@ const SideBar = ({ showSideBar }) => {
             {/* search Box */}
             <div className="px-6">
               <div className="mt-3 mb-2">
-                <SearchBox search={search} setSearch={setSearch} />
+                <SearchBox
+                  search={search}
+                  setSearch={setSearch}
+                  shadow={false}
+                  crossLogo={false}
+                />
               </div>
             </div>
             <SideBarLinkCard
