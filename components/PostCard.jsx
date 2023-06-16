@@ -17,8 +17,8 @@ const PostCard = ({ post }) => {
         <div className="w-full">
           {post && post != null && (
             <div key={post.id} className=" md:rounded-lg  w-full  ">
-              <div className={`px-3 md:px-6 py-6  lg:p-8 `}>
-                <div className="flex gap-4 ">
+              <div className={`px-3 md:px-6 py-6  lg:p-8 text-ellipsis`}>
+                <div className="flex gap-[10px]">
                   <div className="flex flex-shrink-0 ">
                     <Image
                       src={post?.author?.imgUrl}
@@ -28,55 +28,54 @@ const PostCard = ({ post }) => {
                       className="w-9 h-9 rounded-full"
                     />
                   </div>
-                  <div className="w-full">
-                    {/* Profile Photo */}
-                    <div className="flex items-center justify-between mb-4 w-full">
-                      <div className="flex flex-col ">
-                        <div className="flex gap-1">
-                          <p className="text-[0.75rem] font-semibold text-primary-text hover:underline underline-primary-text leading-[130%]">
-                            {post?.author?.name}
-                          </p>
-                          <span className="text-[0.75rem]">in</span>
-                          <p className="text-[0.75rem] font-semibold text-primary-text hover:underline underline-primary-text leading-[130%]">
-                            {post?.community}
-                          </p>
-                        </div>
-                        <div className="flex gap-1">
-                          <div className="flex text-sm space-x-[0.3rem] items-center ">
-                            <p className="flex">
-                              <TimeAgo
-                                date={post.createAt}
-                                className=" text-secondary-text text-[0.75rem] font-normal leading-[130%]"
-                              />
-                            </p>
-                            <div className=" bg-primary-text w-[2px] h-[2px] rounded-full"></div>
-                            <p className="flex text-secondary-text text-[0.75rem] font-normal leading-[130%]">
-                              252 views
-                            </p>
-                          </div>
-                        </div>
+                  <div className="flex items-center justify-between mb-4 w-full">
+                    <div className="flex flex-col ">
+                      <div className="flex gap-1">
+                        <p className="text-[0.75rem] font-semibold text-primary-text hover:underline underline-primary-text leading-[130%]">
+                          {post?.author?.name}
+                        </p>
+                        <span className="text-[0.75rem]">in</span>
+                        <p className="text-[0.75rem] font-semibold text-primary-text hover:underline underline-primary-text leading-[130%]">
+                          {post?.community}
+                        </p>
                       </div>
-
-                      <div>
-                        <Image
-                          src={MoreLogo}
-                          alt="MoreLogo"
-                          className="w-4 h-4 cursor-pointer"
-                        />
+                      <div className="flex gap-1">
+                        <div className="flex text-sm space-x-[0.3rem] items-center ">
+                          <p className="flex">
+                            <TimeAgo
+                              date={post.createAt}
+                              className=" text-secondary-text text-[0.75rem] font-normal leading-[130%]"
+                            />
+                          </p>
+                          <div className=" bg-primary-text w-[2px] h-[2px] rounded-full"></div>
+                          <p className="flex text-secondary-text text-[0.75rem] font-normal leading-[130%]">
+                            252 views
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Heading */}
-
-                    <h1 className="text-primary-text mb-2 text-[1rem] font-semibold leading-[130%] ">
-                      {post?.title}
-                    </h1>
-                    {/* Description */}
-                    <div className="text-secondary-text leading-[1.375rem]  text-[0.875rem] font-normal break-words description max-w-[36.75rem]">
-                      {post.description && parser(post.description)}
+                    <div>
+                      <Image
+                        src={MoreLogo}
+                        alt="MoreLogo"
+                        className="w-4 h-4 cursor-pointer"
+                      />
                     </div>
                   </div>
                 </div>
+                <div className="w-full mobile-lg:pl-[42px] md:pl-[44px]">
+                  {/* Heading */}
+
+                  <h1 className="text-primary-text mb-2 text-[1rem] font-semibold leading-[130%] ">
+                    {post?.title}
+                  </h1>
+                  {/* Description */}
+                  <div className="text-secondary-text leading-[1.375rem]  text-[0.875rem] font-normal break-words description max-w-[36.75rem] flex-shrink text-ellipsis">
+                    {post.description && parser(post.description)}
+                  </div>
+                </div>
+
                 {/* Comment Box */}
                 <div className="flex gap-4 items-center pt-3">
                   <div
