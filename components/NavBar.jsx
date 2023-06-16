@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 import BrandLogo from '@/assets/brand-logo-combined.svg';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const NavBar = ({ setShowSideBar, showSideBar }) => {
+  const router = useRouter();
+
+  const [isPostPage, setIsPostPage] = useState(false);
+
+  useEffect(() => {
+    if (router.pathname === '/posts') {
+      setIsPostPage(true);
+    } else {
+      setIsPostPage(false);
+    }
+  }, [router.pathname]);
+
+  if (isPostPage) {
+    return null;
+  }
+
   return (
     <div
       onClick={() => setShowSideBar(!showSideBar)}
