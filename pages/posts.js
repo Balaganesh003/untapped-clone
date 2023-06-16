@@ -95,8 +95,8 @@ const Posts = () => {
                   <Image
                     src="https://xsgames.co/randomusers/avatar.php?g=male"
                     alt="avatar"
-                    width={40}
-                    height={40}
+                    width={54}
+                    height={54}
                     className="rounded-full object-cover"
                   />
                 </div>
