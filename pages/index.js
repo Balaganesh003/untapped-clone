@@ -16,6 +16,12 @@ export default function Home() {
         <Link href="/jobs" className="block">
           <p className="text-3xl text-link">Jobs</p>
         </Link>
+        <Link href="/posts" className="block">
+          <p className="text-3xl text-link">posts</p>
+        </Link>
+        <Link href="/onboarding" className="block">
+          <p className="text-3xl text-link">Onboarding</p>
+        </Link>
       </div>
     </div>
   );
