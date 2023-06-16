@@ -2,6 +2,8 @@ import SearchBox from '@/components/SearchBox';
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import SearchAndDropDown from '@/components/SearchAndDropDown';
+import PostCard from '@/components/PostCard';
+import { useSelector } from 'react-redux';
 
 const Posts = () => {
   const targetRef = useRef(null);
@@ -10,6 +12,8 @@ const Posts = () => {
   const [selectedSort, setSelectedSort] = useState('Hot');
   const [sortDropDown, setSortDropDown] = useState(false);
   const [isHover, setIsHover] = useState(false);
+
+  const { posts } = useSelector((state) => state.posts);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -72,10 +76,10 @@ const Posts = () => {
           </div>
         </div>
         {/* Post and features section */}
-        <div className="max-w-[66rem] w-full min-h-[120rem] h-full mx-auto lg:px-[1rem] mt-[3rem] z-0 flex">
+        <div className="max-w-[66rem] w-full min-h-screen h-full mx-auto lg:px-[1rem] mt-[3rem] z-0 flex">
           {/* {Post section} */}
-          <div className=" flex-grow flex-shrink-1 basis-[66%] sm:min-w-[21.875rem] min-h-screen lg:mr-[10px] w-full z-0 text-secondary-text">
-            <div className="w-full px-[1rem] lg:px-0">
+          <div className=" flex-grow flex-shrink-1 basis-[66%] sm:min-w-[21.875rem] min-h-screen lg:mr-[10px] w-full z-0 text-secondary-text mb-10">
+            <div className="w-full px-[1rem] lg:px-0 mb-5">
               <SearchAndDropDown
                 search={search}
                 setSearch={setSearch}
@@ -87,7 +91,15 @@ const Posts = () => {
                 setSortDropDown={setSortDropDown}
               />
               <div className="mt-[1rem] bg-white p-[2rem] min-h-[5.8125rem] rounded-lg shadow-nav hover:scale-[101%] transform transition-all duration-200 ease-in-out-expo w-full flex cursor-pointer">
-                <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-400 flex-shrink-0"></div>
+                <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-400 flex-shrink-0">
+                  <Image
+                    src="https://xsgames.co/randomusers/avatar.php?g=male"
+                    alt="avatar"
+                    width={40}
+                    height={40}
+                    className="rounded-full object-cover"
+                  />
+                </div>
                 <div className="ml-[1rem] flex-grow ">
                   <p className="text-[0.75rem] mb-1 text-secondary-text leading-[130%]">
                     Balaganesh K
@@ -97,6 +109,12 @@ const Posts = () => {
                   </p>
                 </div>
               </div>
+            </div>
+            {/* Postcard */}
+            <div>
+              {posts.map((post) => (
+                <PostCard key={post.id} post={post} />
+              ))}
             </div>
           </div>
           {/* Trending post */}

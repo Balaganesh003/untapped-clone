@@ -15,3 +15,38 @@ html {
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.description p,
+li {
+  font-size: 0.875rem;
+  line-height: 1.385rem;
+  color: #666666;
+}
+
+br {
+  content: '';
+  margin: 2em;
+  display: block;
+  font-size: 24%;
+}
+
+li {
+  margin-bottom: 0.2rem;
+}
+
+.description ol {
+  padding-left: 1.25rem;
+  list-style-type: decimal;
+}
+
+.description ul {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.description a {
+  color: #0e0e0e;
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: 'inter';
+}
