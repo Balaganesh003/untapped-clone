@@ -61,6 +61,7 @@ const SideBar = ({ showSideBar }) => {
               isActive={active == 'Home'}
               text={'Home'}
               rounded={false}
+              link={'home'}
             />
             <SideBarLinkCard
               logo={JobsLogo}
@@ -68,6 +69,7 @@ const SideBar = ({ showSideBar }) => {
               text={'Jobs'}
               handleClick={handleClick}
               rounded={false}
+              link={'jobs'}
             />
             <SideBarLinkCard
               logo={EventsLogo}
@@ -75,6 +77,7 @@ const SideBar = ({ showSideBar }) => {
               text={'Events'}
               handleClick={handleClick}
               rounded={false}
+              link={'events'}
             />
             <SideBarLinkCard
               logo={CompaniesLogo}
@@ -82,6 +85,7 @@ const SideBar = ({ showSideBar }) => {
               text={'Companies'}
               handleClick={handleClick}
               rounded={false}
+              link={'companies'}
             />
             <SideBarLinkCard
               logo={'https://xsgames.co/randomusers/avatar.php?g=pixel'}
@@ -89,6 +93,7 @@ const SideBar = ({ showSideBar }) => {
               text={'Balaganesh K'}
               handleClick={handleClick}
               rounded={true}
+              link={'balaganesh-k'}
             />
           </div>
           {/* Direct Message */}
@@ -115,6 +120,7 @@ const SideBar = ({ showSideBar }) => {
               rounded={true}
               handleClick={handleClick}
               isActive={active == 'Team @ Untapped'}
+              link={'team-untapped'}
             />
           </div>
           {/* Communities */}
@@ -139,6 +145,7 @@ const SideBar = ({ showSideBar }) => {
               rounded={false}
               handleClick={handleClick}
               isActive={active == 'All Posts'}
+              link={'posts'}
             />
 
             <SideBarLinkCard
@@ -147,6 +154,7 @@ const SideBar = ({ showSideBar }) => {
               rounded={false}
               handleClick={handleClick}
               isActive={active == 'General Advice'}
+              link={'general-advice'}
             />
 
             <SideBarLinkCard
@@ -155,6 +163,7 @@ const SideBar = ({ showSideBar }) => {
               rounded={true}
               handleClick={handleClick}
               isActive={active == 'Recruiter Announcements'}
+              link={'recruiter-announcements'}
             />
 
             <SideBarLinkCard
@@ -163,6 +172,7 @@ const SideBar = ({ showSideBar }) => {
               rounded={false}
               handleClick={handleClick}
               isActive={active == 'Remote Work'}
+              link="remote-work"
             />
           </div>
         </div>

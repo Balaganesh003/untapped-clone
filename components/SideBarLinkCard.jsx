@@ -2,9 +2,16 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const SideBarLinkCard = ({ logo, isActive, text, handleClick, rounded }) => {
+const SideBarLinkCard = ({
+  logo,
+  isActive,
+  text,
+  handleClick,
+  rounded,
+  link,
+}) => {
   return (
-    <Link href={`/${text.toLowerCase()}`} passHref>
+    <Link href={`/${link?.toLowerCase()}`} passHref>
       <div
         onClick={() => handleClick({ text })}
         className={`px-6 h-12 w-full   flex items-center relative cursor-pointer`}>

@@ -38,8 +38,8 @@ const JobsAndCompanies = ({
     <div className="">
       <div className="w-full border-b border-gray-border">
         <div className="h-full w-full max-w-[62.5rem] mx-auto border-b border-gray-border flex sticky top-0  bg-white items-center z-10">
-          <div className="sm:max-w-[62.5rem]  mx-auto overflow-x-auto flex items-center ">
-            <div className="flex flex-nowrap sm:flex-wrap">
+          <div className="sm:max-w-[62.5rem]   overflow-x-auto flex  ">
+            <div className="flex  flex-nowrap sm:flex-wrap">
               {Filters.map((filter) => (
                 <FilterCard key={filter.id} name={filter.name} />
               ))}
