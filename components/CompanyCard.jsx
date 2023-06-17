@@ -10,9 +10,12 @@ const CompanyCard = ({
   stage,
   employees,
   logo,
+  setIsModalOpen,
 }) => {
   return (
-    <div className="w-full  bg-white p-[0.9375rem] rounded border border-gray-border hover:shadow-card text-primary-text cursor-pointer group overflow-hidden ">
+    <div
+      onClick={() => setIsModalOpen(true)}
+      className="w-full  bg-white p-[0.9375rem] rounded border border-gray-border hover:shadow-card text-primary-text cursor-pointer group overflow-hidden ">
       {/* Logo and applicants */}
       <div className="flex justify-between flex-col flex-grow-1 h-full">
         <div>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BlackDownTriangle from '@/assets/BlackDownTriangle.svg';
 import CrossLogoWhite from '@/assets/crossLogoWhite.svg';
 import SearchLogo from '@/assets/SearchLogo.svg';
+import JobsAndCompaniesModal from './JobsAndCompaniesModal';
 
 const JobsAndCompanies = ({
   DropdownList,
@@ -20,6 +21,7 @@ const JobsAndCompanies = ({
   const [searchText, setSearchText] = useState('');
   const [showClearLogo, setShowClearLogo] = useState(false);
   const [isRecommended, setIsRecommended] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (searchText) {
@@ -135,11 +137,20 @@ const JobsAndCompanies = ({
                 no_jobs={card?.no_jobs}
                 stage={card?.stage}
                 employees={card?.employees}
+                setIsModalOpen={setIsModalOpen}
               />
             ))}
           </div>
         </div>
       </div>
+      {/* Modal */}
+
+      <JobsAndCompaniesModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
+
+      {/* Modal End */}
     </div>
   );
 };
