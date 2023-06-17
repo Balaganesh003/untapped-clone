@@ -7,6 +7,7 @@ import { useRef } from 'react';
 
 const Onboarding = () => {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const targetRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -28,6 +29,7 @@ const Onboarding = () => {
     if (index < 2) {
       setIndex(index + 1);
       targetRef.current.scrollLeft += 740;
+      setDirection(1);
     }
   };
 
@@ -35,6 +37,7 @@ const Onboarding = () => {
     if (index > 0) {
       setIndex(index - 1);
       targetRef.current.scrollLeft -= 740;
+      setDirection(-1);
     }
   };
 
@@ -55,9 +58,9 @@ const Onboarding = () => {
           <AnimatePresence initial={false} custom={index} mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 300 * direction }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -300 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="px-[20px]">
               {index === 0 && <Authorization />}
