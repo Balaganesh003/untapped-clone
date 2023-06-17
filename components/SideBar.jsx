@@ -17,13 +17,28 @@ import SearchBox from '@/components/SearchBox';
 import PlusLogo from '@/assets/PlusLogo.svg';
 import AllPostsLogo from '@/assets/Community.svg';
 import GeneralAdviceLogo from '@/assets/general-advice.png';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '@/store/ui-slice';
 
-const SideBar = ({ showSideBar }) => {
+const SideBar = () => {
+  const dispatch = useDispatch();
   const [active, setActive] = useState('Home');
   const [search, setSearch] = useState('');
 
+  const { isSidebarOpen } = useSelector((state) => state.ui);
+
   const handleClick = ({ text }) => {
     setActive(text);
+  };
+
+  const targetRef = useRef();
+
+  const handleClickOutside = (event) => {
+    if (!targetRef.current.contains(event.target)) {
+      dispatch(uiActions.toggleSidebar());
+    }
   };
 
   return (
@@ -178,6 +193,84 @@ const SideBar = ({ showSideBar }) => {
         </div>
       </div>
       {/* Mobile Navbar */}
+
+      <div
+        onClick={handleClickOutside}
+        className={`lg:hidden ${
+          isSidebarOpen
+            ? ' transform translate-x-0'
+            : 'transform -translate-x-[150%] '
+        }  ease-in-out w-full min-h-screen bg-black/50 fixed top-0 left-0 z-[999]`}>
+        <div
+          ref={targetRef}
+          className={`w-[17.5rem] ${
+            isSidebarOpen
+              ? 'transform translate-x-0'
+              : 'transform -translate-x-[150%]'
+          } min-h-screen h-full flex-shrink-0 transition-all duration-500 z-50 bg-white`}>
+          {/*  */}
+
+          <div className="cursor-pointer pt-[2rem] px-[1.25rem] pb-[0.5rem]">
+            <Link href="/" onClick={() => dispatch(uiActions.toggleSidebar())}>
+              <Image
+                src={BrandLogo}
+                alt="Hamburger Logo"
+                className="w-fit h-[20px] "
+              />
+            </Link>
+          </div>
+          <div>
+            <div className="px-6 pt-8 pb-3 flex items-center justify-between">
+              <p className="text-[0.75rem] leading-[150%] tracking-[0.08rem] text-primary-text uppercase">
+                Your Communities
+              </p>
+            </div>
+            <div onClick={() => dispatch(uiActions.toggleSidebar())}>
+              <SideBarLinkCard
+                logo={AllPostsLogo}
+                text={'All Posts'}
+                rounded={false}
+                handleClick={handleClick}
+                isActive={active == 'All Posts'}
+                link={'posts'}
+              />
+            </div>
+            <div onClick={() => dispatch(uiActions.toggleSidebar())}>
+              <SideBarLinkCard
+                onClick={() => dispatch(uiActions.toggleSidebar())}
+                logo={GeneralAdviceLogo}
+                text={'General Advice'}
+                rounded={false}
+                handleClick={handleClick}
+                isActive={active == 'General Advice'}
+                link={'general-advice'}
+              />
+            </div>
+            <div onClick={() => dispatch(uiActions.toggleSidebar())}>
+              <SideBarLinkCard
+                onClick={() => dispatch(uiActions.toggleSidebar())}
+                logo={MikeLogo}
+                text={'Recruiter Announcements'}
+                rounded={true}
+                handleClick={handleClick}
+                isActive={active == 'Recruiter Announcements'}
+                link={'recruiter-announcements'}
+              />
+            </div>
+            <div onClick={() => dispatch(uiActions.toggleSidebar())}>
+              <SideBarLinkCard
+                onClick={() => dispatch(uiActions.toggleSidebar())}
+                logo={RemoteWorkLogo}
+                text={'Remote Work'}
+                rounded={false}
+                handleClick={handleClick}
+                isActive={active == 'Remote Work'}
+                link="remote-work"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

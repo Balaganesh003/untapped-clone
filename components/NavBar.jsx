@@ -4,10 +4,13 @@ import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 import BrandLogo from '@/assets/brand-logo-combined.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '@/store/ui-slice';
 
 const NavBar = ({ setShowSideBar, showSideBar }) => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const [isPostPage, setIsPostPage] = useState(false);
 
   useEffect(() => {
@@ -26,7 +29,7 @@ const NavBar = ({ setShowSideBar, showSideBar }) => {
     <div
       onClick={() => setShowSideBar(!showSideBar)}
       className="h-[4.75rem] w-full sticky top-0  lg:hidden bg-white flex items-center shadow-nav z-50">
-      <div className="mx-6">
+      <div onClick={() => dispatch(uiActions.toggleSidebar())} className="mx-6">
         <Image
           src={HamburgerLogo}
           alt="Hamburger Logo"

@@ -6,9 +6,12 @@ import { useSelector } from 'react-redux';
 import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 import WhitePencilLogo from '@/assets/WhitePencil.svg';
 import TrendingPostCard from '@/components/TrendingPostCard';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '@/store/ui-slice';
 
 const Posts = () => {
   const targetRef = useRef(null);
+  const dispatch = useDispatch();
   const [hasScrolled, setHasScrolled] = useState(false);
   const [search, setSearch] = useState('');
   const [selectedSort, setSelectedSort] = useState('Hot');
@@ -33,12 +36,13 @@ const Posts = () => {
         {/* search */}
         <div
           className={`h-[4.5rem] w-full lg:w-[calc(100%-296.5px)]  py-[1rem] px-[1.35rem] bg-white shadow-nav  fixed top-0 flex justify-center  transition-all duration-300 ease-in-out-expo ${
-            hasScrolled ? 'opacity-[100%] z-[100] ' : 'opacity-0 '
+            hasScrolled ? 'opacity-[100%] z-[60] ' : 'opacity-0 '
           }`}>
-          <div className="mt-0 flex w-full  max-w-[66rem] text-[1rem] items-center">
+          <div className="mt-0 flex w-full   max-w-[66rem] text-[1rem] items-center">
             <div className="flex items-center w-full lg:w-[67%]">
               <div className="mr-6">
                 <Image
+                  onClick={() => dispatch(uiActions.toggleSidebar())}
                   src={HamburgerLogo}
                   alt="Hamburger Logo"
                   className="w-[14px] h-[20px] cursor-pointer"
@@ -88,6 +92,7 @@ const Posts = () => {
                   className={`lg:mt-[1.5rem] mt-[1.25rem] px-[1.25rem] lg:px-[1rem] lg:pt-[4rem] `}>
                   <div className="mr-6 pb-[1.15rem] lg:hidden">
                     <Image
+                      onClick={() => dispatch(uiActions.toggleSidebar())}
                       src={HamburgerLogo}
                       alt="Hamburger Logo"
                       className="w-[14px] h-[20px] cursor-pointer"
