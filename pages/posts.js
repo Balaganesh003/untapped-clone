@@ -1,4 +1,3 @@
-import SearchBox from '@/components/SearchBox';
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import SearchAndDropDown from '@/components/SearchAndDropDown';
@@ -6,6 +5,7 @@ import PostCard from '@/components/PostCard';
 import { useSelector } from 'react-redux';
 import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 import WhitePencilLogo from '@/assets/WhitePencil.svg';
+import TrendingPostCard from '@/components/TrendingPostCard';
 
 const Posts = () => {
   const targetRef = useRef(null);
@@ -17,7 +17,7 @@ const Posts = () => {
 
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
-  const { posts } = useSelector((state) => state.posts);
+  const { posts, TrendingPostData } = useSelector((state) => state.posts);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -178,8 +178,30 @@ const Posts = () => {
             </div>
           </div>
           {/* Trending post */}
-          <div className="ml-[10px] hidden lg:flex bg-blue-400 basis-[32%] flex-grow-0 flex-shrink-1 min-w-[14.75rem] max-w-[18.75rem] min-h-screen">
-            Trending post
+          <div className="ml-[10px] hidden bg-white lg:flex  basis-[32%] flex-grow-0 flex-shrink-1 min-w-[14.75rem] max-w-[18.75rem]  rounded-lg overflow-hidden mb-10 h-fit border border-gray-hover">
+            <div className="flex flex-col rounded-t-lg ">
+              <p className="text-secondary-text px-[1.5rem] py-[1rem] border-b border-gray-hover text-[0.875rem] leading-[130%]">
+                Trending
+              </p>
+              <div className="flex flex-col ">
+                {TrendingPostData.map((post) => (
+                  <TrendingPostCard
+                    key={post.id}
+                    id={post.id}
+                    title={post.title}
+                    name={post.author.name}
+                    community={post.community}
+                    createAt={post.createAt}
+                    no_views={post.no_views}
+                    imgUrl={post.author.imgUrl}
+                    no_likes={post.no_likes}
+                    no_comments={post.comments.length}
+                    isLiked={post.isLiked}
+                    hasFollowed={post.hasFollowed}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
