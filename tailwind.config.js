@@ -12,6 +12,7 @@ module.exports = {
         'primary-button': '#C9F270',
         secondary: '#E8F0FE',
         link: '#3365e6',
+        'create-button': '#4774e9',
         'primary-text': '#0e0e0e',
         primary: '#FAFAFA',
         'gray-hover': '#f2f2f2',

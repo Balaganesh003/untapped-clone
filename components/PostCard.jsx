@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
   const [isCommentBoxOpen, setIsCommentBoxOpen] = useState(false);
 
   return (
-    <div className="mb-[1rem] cursor-pointer lg:rounded border border-gray-hover">
+    <div className="mb-[1rem]  cursor-pointer lg:rounded border border-gray-hover">
       <div className="w-[100%] h-full flex  space-x-4 items-center bg-white md:rounded-lg">
         <div className="w-full">
           {post && post != null && (
