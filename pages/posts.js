@@ -4,6 +4,7 @@ import Image from 'next/image';
 import SearchAndDropDown from '@/components/SearchAndDropDown';
 import PostCard from '@/components/PostCard';
 import { useSelector } from 'react-redux';
+import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 
 const Posts = () => {
   const targetRef = useRef(null);
@@ -12,6 +13,8 @@ const Posts = () => {
   const [selectedSort, setSelectedSort] = useState('Hot');
   const [sortDropDown, setSortDropDown] = useState(false);
   const [isHover, setIsHover] = useState(false);
+
+  const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
   const { posts } = useSelector((state) => state.posts);
 
@@ -33,6 +36,13 @@ const Posts = () => {
           }`}>
           <div className="mt-0 flex w-full  max-w-[66rem] text-[1rem] items-center">
             <div className="flex items-center w-full lg:w-[67%]">
+              <div className="mr-6">
+                <Image
+                  src={HamburgerLogo}
+                  alt="Hamburger Logo"
+                  className="w-[14px] h-[20px] cursor-pointer"
+                />
+              </div>
               {/* search and dropdown */}
               <SearchAndDropDown
                 search={search}
@@ -54,21 +64,51 @@ const Posts = () => {
           relative`}>
             <div
               className={`h-full w-full max-w-[66rem] mx-auto flex bg-white items-center z-10 `}>
-              <div className={`sm:max-w-[66rem] pb-[1.5rem] w-full mx-auto`}>
+              <div
+                className={`sm:max-w-[66rem] lg:pb-[1.5rem] w-full mx-auto `}>
                 {/* All posts */}
-                <div className={`mt-[1.5rem] px-[1rem] pt-[4rem] `}>
+                <div
+                  className={`lg:mt-[1.5rem] mt-[1.25rem] px-[1.25rem] lg:px-[1rem] lg:pt-[4rem] `}>
+                  <div className="mr-6 pb-[1.15rem] lg:hidden">
+                    <Image
+                      src={HamburgerLogo}
+                      alt="Hamburger Logo"
+                      className="w-[14px] h-[20px] cursor-pointer"
+                    />
+                  </div>
                   <p className="text-[2rem] text-black font-semibold leading-[125%]">
                     All Posts
                   </p>
-                  <div className="mt-2 text-primary-text text-[0.75rem] leading-[130%] font-normal flex items-center gap-3 divide-x-[1.5px]">
+                  <div className="mt-1 lg:mt-2 text-primary-text text-[0.75rem] leading-[130%] font-normal flex items-center gap-[17px] divide-x-[1.5px]">
                     <div>
-                      <p>690944 members</p>
+                      <p>690,944 members</p>
                     </div>
-                    <div className="flex items-center pl-3">
+                    <div className="flex items-center pl-[17px]">
                       <div className="w-[6px] h-[6px] bg-dot rounded-full mr-[6px]"></div>
                       <div>955 online</div>
                     </div>
                   </div>
+                </div>
+                {/* Slidebar */}
+                <div className="block lg:hidden w-full mt-5 border-y border-gray-hover ">
+                  <div className="flex w-full  transition-all duration-300">
+                    <div
+                      onClick={() => setSelectedCommunity('Feed')}
+                      className={`flex-1 text-center text-[0.75rem] leading-[130%] cursor-pointer p-[0.9rem] font-semibold`}>
+                      Feed
+                    </div>
+                    <div
+                      onClick={() => setSelectedCommunity('Communities')}
+                      className={`flex-1 text-center text-[0.75rem] leading-[130%] p-[0.9rem] cursor-pointer font-semibold`}>
+                      Communities
+                    </div>
+                  </div>
+                  <div
+                    className={`h-1 rounded-full w-full  relative before:content-[''] before:w-[50%] before:absolute ${
+                      selectedCommunity == 'Feed'
+                        ? 'before:left-0'
+                        : 'before:right-0'
+                    }  before:h-1 before:bg-black before:rounded-lg`}></div>
                 </div>
                 {/* All post nav */}
               </div>
@@ -79,17 +119,20 @@ const Posts = () => {
         <div className="max-w-[66rem] w-full min-h-screen h-full mx-auto lg:px-[1rem] mt-[3rem] z-0 flex">
           {/* {Post section} */}
           <div className=" flex-grow flex-shrink-1 basis-[66%] sm:min-w-[21.875rem] min-h-screen lg:mr-[10px] w-full z-0 text-secondary-text mb-10">
-            <div className="w-full px-[1rem] lg:px-0 mb-5">
-              <SearchAndDropDown
-                search={search}
-                setSearch={setSearch}
-                isHover={isHover}
-                setIsHover={setIsHover}
-                selectedSort={selectedSort}
-                setSelectedSort={setSelectedSort}
-                sortDropDown={sortDropDown}
-                setSortDropDown={setSortDropDown}
-              />
+            <div className="w-full h-full px-[1rem] lg:px-0 mb-5">
+              <div className="w-full h-[2.5rem]">
+                <SearchAndDropDown
+                  search={search}
+                  setSearch={setSearch}
+                  isHover={isHover}
+                  setIsHover={setIsHover}
+                  selectedSort={selectedSort}
+                  setSelectedSort={setSelectedSort}
+                  sortDropDown={sortDropDown}
+                  setSortDropDown={setSortDropDown}
+                />
+              </div>
+
               <div className="mt-[1rem] bg-white p-[2rem] min-h-[5.8125rem] rounded-lg shadow-nav hover:scale-[101%] transform transition-all duration-200 ease-in-out-expo w-full flex cursor-pointer">
                 <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-400 flex-shrink-0">
                   <Image

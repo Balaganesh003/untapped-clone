@@ -16,7 +16,7 @@ const SearchAndDropDown = ({
 }) => {
   return (
     <div className="w-full h-full flex items-center text-primary-text">
-      <div className={`w-full pr-2 lg:pr-[27px] `}>
+      <div className={`w-full h-full pr-2 lg:pr-[27px] `}>
         <SearchBox
           search={search}
           setSearch={setSearch}

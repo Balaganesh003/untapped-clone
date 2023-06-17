@@ -3,7 +3,7 @@ import SearchLogo from '@/assets/SearchLogo.svg';
 import Image from 'next/image';
 import GrayCrossLogo from '@/assets/crossLogoGray.svg';
 
-const SearchBox = ({ search, setSearch, shadow, crossLogo }) => {
+const SearchBox = ({ search, setSearch, shadow, crossLogo, fontSize }) => {
   return (
     <div className="relative  rounded-full">
       <input
@@ -11,7 +11,7 @@ const SearchBox = ({ search, setSearch, shadow, crossLogo }) => {
         placeholder="Search"
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        className={`w-full h-[38px] px-11 leading-[150%] text-sm bg-primary rounded-full border-[1px] border-[#f2f2f2] focus:outline-none focus:border-primary-text  ${
+        className={`w-full h-[40px] px-11 leading-[150%] text-[1rem] bg-primary rounded-full border-[1px] border-[#f2f2f2] focus:outline-none focus:border-primary-text  ${
           shadow && 'shadow-search'
         } `}
       />
