@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import MoreLogo from '@/assets/MoreLogo.svg';
 import parser from 'html-react-parser';
 import TimeAgo from 'react-timeago';
-import RightArrow from '@/assets/GrayDownArrow.svg';
 import LeftArrow from '../assets/LeftGrayArrow.svg';
 import OutlineHeart from '@/assets/OutlineHeart.svg';
 import OutlineMessage from '@/assets/OutlineMessage.svg';
@@ -18,7 +16,6 @@ const PostCard = ({ post }) => {
   const dispatch = useDispatch();
   const { id, isLiked, no_likes, comments, hasFollowed } = post;
   const [isProfileDropDownOpen, setIsProfileDropDownOpen] = useState(false);
-  const [isCommentBoxOpen, setIsCommentBoxOpen] = useState(false);
 
   const handelLike = () => {
     dispatch(postsActions.toggleLike(id));
@@ -178,8 +175,6 @@ const PostCard = ({ post }) => {
 
                   <div className="w-full text-primary-text bg-primary pt-[10px] pb-[6px] rounded-lg">
                     <input
-                      onFocusCapture={() => setIsCommentBoxOpen(true)}
-                      onBlurCapture={() => setIsCommentBoxOpen(false)}
                       type="text"
                       placeholder="Add a comment"
                       className="w-full h-full outline-none text-[1rem] leading-[1.375rem] py-[0.1rem] px-[0.875rem] bg-transparent text-primary-text placeholder:text-primary-text"

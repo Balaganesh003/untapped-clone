@@ -4,7 +4,6 @@ import HamburgerLogo from '@/assets/HamBurgerLogo.svg';
 import BrandLogo from '@/assets/brand-logo-combined.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '@/store/ui-slice';
 
