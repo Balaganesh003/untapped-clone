@@ -5,6 +5,8 @@ const initialState = {
   linkedInUrlError: false,
   isAuthorized: null,
   needSponsorship: null,
+  startPeriod: null,
+  endPeriod: null,
 };
 
 const onboardingSlice = createSlice({
@@ -31,6 +33,13 @@ const onboardingSlice = createSlice({
 
     setNeedSponsorship(state, action) {
       state.needSponsorship = action.payload;
+    },
+
+    setStartPeriod(state, action) {
+      state.startPeriod = action.payload;
+    },
+    setEndPeriod(state, action) {
+      state.endPeriod = action.payload;
     },
   },
 });

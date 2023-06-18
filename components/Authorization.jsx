@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { onboardingActions } from '@/store/onboarding-slice';
 import Selection from './Selection';
-import LocationDropDown from './LocationDropDown';
+import LocationDropDown from './SearchDropDown';
 
 const Authorization = () => {
   const dispatch = useDispatch();
