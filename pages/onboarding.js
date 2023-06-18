@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import { onboardingActions } from '@/store/onboarding-slice';
 import BlackTick from '@/assets/BlackTick.svg';
+import BlackDownArrow from '@/assets/BlackDownArrow.svg';
+import BrandLogo from '@/assets/brand-logo-combined.svg';
 
 const Onboarding = () => {
   const dispatch = useDispatch();
@@ -79,7 +81,48 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="w-full pt-[2.75rem] pb-[4rem] ">
+    <div className="w-full  lg:pt-[2.75rem] lg:pb-[4rem] ">
+      {/* Logo */}
+      <div className="hidden lg:block">
+        <Image
+          src={BrandLogo}
+          className="h-[2.75rem] fixed top-[2.75rem] left-[0.25rem]"
+        />
+      </div>
+      {/* Mobile nav bar */}
+      <div className="h-[60px] lg:hidden px-4 w-full  shadow-nav sticky top-0 left-0 z-[50] flex items-center justify-between mb-2">
+        <div className="flex-1 flex justify-start">
+          <Image
+            onClick={prevPanel}
+            src={BlackDownArrow}
+            alt="back"
+            className={`h-[1.5rem] w-fit rotate-90 cursor-pointer transition-all duration-300 ${
+              index > 0 ? 'block opacity-[100%]' : 'hidden opacity-0'
+            }`}
+          />
+        </div>
+        <div className="flex gap-1 flex-1 justify-center">
+          <div
+            className={`w-4 h-[3px] rounded-full   ${
+              index > 0 ? 'bg-black' : 'bg-light-gray'
+            }`}></div>
+          <div
+            className={`w-4 h-[3px] rounded-full   ${
+              index > 1 ? 'bg-black' : 'bg-light-gray'
+            }`}></div>
+          <div
+            className={`w-4 h-[3px] rounded-full   ${
+              index > 2 ? 'bg-black' : 'bg-light-gray'
+            }`}></div>
+        </div>
+        <div className="flex-1  flex justify-end">
+          <button
+            onClick={nextPanel}
+            className="py-[10px] w-fit  px-8 text-[0.875rem] rounded font-semibold bg-primary-button text-primary-text hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
+            Next
+          </button>
+        </div>
+      </div>
       <Toaster />
       <div
         className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflow-hidden mx-auto relative rounded-[1.5rem]"
@@ -88,39 +131,42 @@ const Onboarding = () => {
           ref={targetRef}
           className="max-w-[52.125rem] w-full mx-auto overflow-x-clip scrollbar-hide ">
           {/* Back button */}
-          <div
-            onClick={prevPanel}
-            className={`absolute ${
-              index > 0 ? 'block' : 'hidden'
-            } top-[3rem] left-[3rem] cursor-pointer`}>
-            <Image
-              src={BackLogo}
-              alt="back"
-              className="w-[0.625rem] h-[1rem]"
-            />
+          <div className="hidden lg:block">
+            <div
+              onClick={prevPanel}
+              className={`absolute ${
+                index > 0 ? 'block' : 'hidden'
+              } top-[3rem] left-[3rem] cursor-pointer`}>
+              <Image
+                src={BackLogo}
+                alt="back"
+                className="w-[0.625rem] h-[1rem]"
+              />
+            </div>
+            {/* Header */}
+            <div className="w-full flex justify-between">
+              <span
+                className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
+                  index == 0 && 'font-semibold'
+                }`}>
+                Education
+              </span>
+              <span
+                className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
+                  index == 1 && 'font-semibold'
+                }`}>
+                Resume
+              </span>
+              <span
+                className={`text-[0.75rem] leading-[150%] transition-all duration-300 text-primary-text ${
+                  index == 2 && 'font-semibold'
+                }`}>
+                Authorization
+              </span>
+            </div>
+            <hr className=" w-full bg-gray-hover h-[1px] mt-[1.5rem] mb-[2.25rem] mx-auto" />
           </div>
-          {/* Header */}
-          <div className="w-full flex justify-between">
-            <span
-              className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
-                index == 0 && 'font-semibold'
-              }`}>
-              Education
-            </span>
-            <span
-              className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
-                index == 1 && 'font-semibold'
-              }`}>
-              Resume
-            </span>
-            <span
-              className={`text-[0.75rem] leading-[150%] transition-all duration-300 text-primary-text ${
-                index == 2 && 'font-semibold'
-              }`}>
-              Authorization
-            </span>
-          </div>
-          <hr className=" w-full bg-gray-hover h-[1px] mt-[1.5rem] mb-[2.25rem] mx-auto" />
+
           {/* Slides */}
           <AnimatePresence initial={false} custom={index} mode="wait">
             <motion.div
@@ -134,7 +180,7 @@ const Onboarding = () => {
               {index === 2 && <Authorization />}
             </motion.div>
           </AnimatePresence>
-          <div className="w-full mt-[2rem] flex justify-center">
+          <div className="hidden w-full mt-[2rem] lg:flex justify-center">
             <button
               onClick={nextPanel}
               className="max-w-[13.25rem]   mx-auto  bg-primary-button px-4 rounded font-semibold text-[0.875rem] h-[2.5rem] flex items-center gap-2 hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
