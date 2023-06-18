@@ -7,13 +7,21 @@ import { useRef } from 'react';
 import BackLogo from '@/assets/LeftGrayArrow.svg';
 import Image from 'next/image';
 import RightArrow from '@/assets/RightArrow.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
+import { onboardingActions } from '@/store/onboarding-slice';
 
 const Onboarding = () => {
+  const dispatch = useDispatch();
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const targetRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const { linkedInUrlError, linkedInUrl } = useSelector(
+    (state) => state.onboarding
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,8 +36,20 @@ const Onboarding = () => {
     };
   }, []);
 
+  const checkLinkedInUrl = () => {
+    dispatch(onboardingActions.checkLinkedInUrl());
+    linkedInUrlError && linkedInUrl !== ''
+      ? toast.error('LinkedIn URL is not saved')
+      : linkedInUrl !== '' && toast.success('LinkedIn URL is saved');
+  };
+
   const nextPanel = (e) => {
     e.preventDefault();
+
+    if (index === 1) {
+      checkLinkedInUrl();
+    }
+
     if (index < 2) {
       setIndex(index + 1);
       targetRef.current.scrollLeft += 740;
@@ -39,6 +59,11 @@ const Onboarding = () => {
 
   const prevPanel = (e) => {
     e.preventDefault();
+
+    if (index === 1) {
+      checkLinkedInUrl();
+    }
+
     if (index > 0) {
       setIndex(index - 1);
       targetRef.current.scrollLeft -= 740;
@@ -54,8 +79,9 @@ const Onboarding = () => {
 
   return (
     <div className="w-full pt-[2.75rem] pb-[4rem] ">
+      <Toaster />
       <div
-        className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflow-hidden mx-auto relative"
+        className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflow-hidden mx-auto relative rounded-[1.5rem]"
         onScroll={handleScroll}>
         <div
           ref={targetRef}
