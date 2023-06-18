@@ -10,6 +10,7 @@ import RightArrow from '@/assets/RightArrow.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import { onboardingActions } from '@/store/onboarding-slice';
+import BlackTick from '@/assets/BlackTick.svg';
 
 const Onboarding = () => {
   const dispatch = useDispatch();
@@ -137,9 +138,9 @@ const Onboarding = () => {
             <button
               onClick={nextPanel}
               className="max-w-[13.25rem]   mx-auto  bg-primary-button px-4 rounded font-semibold text-[0.875rem] h-[2.5rem] flex items-center gap-2 hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
-              Save and Continue
+              {index == 2 ? 'Complete Profile' : 'Save and Continue'}
               <Image
-                src={RightArrow}
+                src={index == 2 ? BlackTick : RightArrow}
                 alt="back"
                 className="h-[0.875rem] w-fit"
               />
