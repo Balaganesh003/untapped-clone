@@ -87,6 +87,7 @@ const Onboarding = () => {
         <Image
           src={BrandLogo}
           className="h-[2.75rem] fixed top-[2.75rem] left-[0.25rem]"
+          alt="brand-logo"
         />
       </div>
       {/* Mobile nav bar */}
