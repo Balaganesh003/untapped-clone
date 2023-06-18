@@ -4,6 +4,9 @@ import Resume from '@/components/Resume';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
+import BackLogo from '@/assets/LeftGrayArrow.svg';
+import Image from 'next/image';
+import RightArrow from '@/assets/RightArrow.svg';
 
 const Onboarding = () => {
   const [index, setIndex] = useState(0);
@@ -25,7 +28,8 @@ const Onboarding = () => {
     };
   }, []);
 
-  const nextPanel = () => {
+  const nextPanel = (e) => {
+    e.preventDefault();
     if (index < 2) {
       setIndex(index + 1);
       targetRef.current.scrollLeft += 740;
@@ -33,7 +37,8 @@ const Onboarding = () => {
     }
   };
 
-  const prevPanel = () => {
+  const prevPanel = (e) => {
+    e.preventDefault();
     if (index > 0) {
       setIndex(index - 1);
       targetRef.current.scrollLeft -= 740;
@@ -48,38 +53,72 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="w-full pt-[1.5rem] pb-[1.5rem] ">
+    <div className="w-full pt-[2.75rem] pb-[4rem] ">
       <div
-        className="w-[740px] h-[540px] bg-white py-[20px] shadow-nav overflow-hidden mx-auto"
+        className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflow-hidden mx-auto relative"
         onScroll={handleScroll}>
         <div
           ref={targetRef}
-          className="flex w-full overflow-x-auto scrollbar-hide">
+          className="max-w-[52.125rem] w-full mx-auto overflow-x-clip scrollbar-hide ">
+          {/* Back button */}
+          <div
+            onClick={prevPanel}
+            className={`absolute ${
+              index > 0 ? 'block' : 'hidden'
+            } top-[3rem] left-[3rem] cursor-pointer`}>
+            <Image
+              src={BackLogo}
+              alt="back"
+              className="w-[0.625rem] h-[1rem]"
+            />
+          </div>
+          {/* Header */}
+          <div className="w-full flex justify-between">
+            <span
+              className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
+                index == 0 && 'font-semibold'
+              }`}>
+              Education
+            </span>
+            <span
+              className={`text-[0.75rem] leading-[150%] transition-all duration-300  text-primary-text ${
+                index == 1 && 'font-semibold'
+              }`}>
+              Resume
+            </span>
+            <span
+              className={`text-[0.75rem] leading-[150%] transition-all duration-300 text-primary-text ${
+                index == 2 && 'font-semibold'
+              }`}>
+              Authorization
+            </span>
+          </div>
+          <hr className=" w-full bg-gray-hover h-[1px] mt-[1.5rem] mb-[2.25rem] mx-auto" />
+          {/* Slides */}
           <AnimatePresence initial={false} custom={index} mode="wait">
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 300 * direction }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="px-[20px]">
-              {index === 0 && <Authorization />}
-              {index === 1 && <Education />}
-              {index === 2 && <Resume />}
+              transition={{ duration: 0.3 }}>
+              {index === 0 && <Education />}
+              {index === 1 && <Resume />}
+              {index === 2 && <Authorization />}
             </motion.div>
           </AnimatePresence>
-        </div>
-        <div className="flex justify-between items-center mt-[2rem]">
-          <button
-            onClick={prevPanel}
-            className="text-[#2D2D2D] p-4 text-[14px] font-bold">
-            Back
-          </button>
-          <button
-            onClick={nextPanel}
-            className="text-[#2D2D2D] p-4 text-[14px] font-bold">
-            Next
-          </button>
+          <div className="w-full mt-[2rem] flex justify-center">
+            <button
+              onClick={nextPanel}
+              className="max-w-[13.25rem]   mx-auto  bg-primary-button px-4 rounded font-semibold text-[0.875rem] h-[2.5rem] flex items-center gap-2 hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
+              Save and Continue
+              <Image
+                src={RightArrow}
+                alt="back"
+                className="h-[0.875rem] w-fit"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

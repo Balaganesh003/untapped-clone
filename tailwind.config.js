@@ -44,6 +44,7 @@ module.exports = {
         card: '0 2px 10px rgba(45, 42, 61, 0.1)',
         button: '0 1px 4px rgba(0, 0, 0, 0.16)',
         search: '0 1px 8px rgba(0, 0, 0, 0.16)',
+        onboard: '0 2px 32px rgba(0, 0, 0, 0.08)',
       },
     },
   },
