@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import EducationCard from '@/components/EducationCard';
 import BluePlusLogo from '@/assets/BluePlusLogo.svg';
 import Image from 'next/image';
+import SearchDropDown from './SearchDropDown';
+import { collegeSubjects } from '@/data';
+import TextEditor from './TextEditor';
 
 const Education = () => {
   const [schools, setSchools] = useState([{}]);
@@ -61,7 +64,22 @@ const Education = () => {
           </div>
         </div>
       ) : (
-        <div></div>
+        <div>
+          <SearchDropDown
+            label1="Self-Taught Discipline"
+            placeholder="Discipline"
+            dropdownList={collegeSubjects}
+          />
+          <div className="mt-4">
+            <div>
+              <TextEditor
+                enableUnderline={true}
+                enableLink={true}
+                enableList={true}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
