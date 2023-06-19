@@ -126,7 +126,7 @@ const Onboarding = () => {
       </div>
       <Toaster />
       <div
-        className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflow-hidden mx-auto relative rounded-[1.5rem]"
+        className="max-w-[62.5rem]  bg-white py-[2.75rem] shadow-onboard overflowx-x-hidden mx-auto relative rounded-[1.5rem]"
         onScroll={handleScroll}>
         <div
           ref={targetRef}
@@ -169,7 +169,7 @@ const Onboarding = () => {
           </div>
 
           {/* Slides */}
-          <AnimatePresence initial={false} custom={index} mode="wait">
+          <AnimatePresence initial={false} custom={index} mode={`wait`}>
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 300 * direction }}

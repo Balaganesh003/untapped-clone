@@ -20,7 +20,7 @@ const DropDown = ({ options, label }) => {
         <select
           name="options"
           id="options"
-          className="w-full px-4 text-[1rem] bg-white h-12 rounded py-[0.1rem] mb-[0.8125rem] text-primary-text border border-light-gray group focus:outline-black pr-4 appearance-none"
+          className="w-full px-4 text-[1rem] bg-white h-12 rounded py-[0.1rem] text-primary-text border border-light-gray group focus:outline-black pr-4 appearance-none"
           value={selectedOption}
           onChange={handleOptionChange}>
           {options.map((option) => (
