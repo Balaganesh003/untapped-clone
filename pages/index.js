@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import CreatePost from '../components/CreatePost';
 
 const inter = Inter({
   subsets: ['latin'],

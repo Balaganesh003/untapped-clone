@@ -9,7 +9,7 @@ const JobsAndCompaniesModal = ({ isModalOpen, setIsModalOpen }) => {
         isModalOpen ? ' scale-[100%] opacity-[100]' : ' scale-0 opacity-0'
       }`}>
       <div
-        className={`block mobile-lg:rounded-lg  bg-white mobile-lg:max-w-[64rem] w-full transform duration-[300ms]   ${
+        className={`block mobile-lg:rounded-lg min-h-screen mobile-lg:min-h-fit bg-white mobile-lg:max-w-[64rem] w-full transform duration-[300ms]   ${
           isModalOpen ? ' scale-[100%] opacity-[100]' : ' scale-0 opacity-0'
         } overflow-x-hidden`}>
         <div className="block mobile-lg:rounded-lg  bg-primary mobile-lg:max-w-[64rem] w-full  max-h-screen overflow-y-auto relative">
@@ -17,7 +17,7 @@ const JobsAndCompaniesModal = ({ isModalOpen, setIsModalOpen }) => {
             {/* CloseLogo */}
             <div
               onClick={() => setIsModalOpen(false)}
-              className="p-[9px] bg-black/[15%] rounded-full absolute  top-[14px]  right-[5px] cursor-pointer group hover:scale-[125%] hover:bg-black/10 transition-all duration-300">
+              className="p-[9px] bg-black/[15%] rounded-full absolute  top-[14px]  right-[10px] cursor-pointer group hover:scale-[125%] hover:bg-black/10 transition-all duration-300">
               <Image
                 src={CrossLogoWhite}
                 alt="Cross Logo"

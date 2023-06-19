@@ -8,6 +8,7 @@ import WhitePencilLogo from '@/assets/WhitePencil.svg';
 import TrendingPostCard from '@/components/TrendingPostCard';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '@/store/ui-slice';
+import CreatePost from '@/components/CreatePost';
 
 const Posts = () => {
   const targetRef = useRef(null);
@@ -17,6 +18,8 @@ const Posts = () => {
   const [selectedSort, setSelectedSort] = useState('Hot');
   const [sortDropDown, setSortDropDown] = useState(false);
   const [isHover, setIsHover] = useState(false);
+
+  const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
 
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
@@ -67,7 +70,9 @@ const Posts = () => {
           className={`bg-link z-[50] cursor-pointer ${
             hasScrolled ? 'block ' : 'hidden '
           }hover:bg-create-button shadow-nav min-h-[2.5rem] min-w-[15rem] flex items-center justify-center fixed bottom-[2.5rem] left-[50%] -translate-x-1/2 rounded-full group transition-all duration-200 ease-in-out-expo`}>
-          <div className="group-hover:scale-95 flex gap-2 items-center ">
+          <div
+            onClick={() => setIsCreatePostOpen(true)}
+            className="group-hover:scale-95 flex gap-2 items-center ">
             <Image
               src={WhitePencilLogo}
               alt="White Pencil Logo"
@@ -155,7 +160,9 @@ const Posts = () => {
                 />
               </div>
 
-              <div className="mt-[1rem] bg-white p-[2rem] min-h-[5.8125rem] rounded-lg shadow-nav hover:scale-[101%] transform transition-all duration-200 ease-in-out-expo w-full flex cursor-pointer ">
+              <div
+                onClick={() => setIsCreatePostOpen(true)}
+                className="mt-[1rem] bg-white p-[2rem] min-h-[5.8125rem] rounded-lg shadow-nav hover:scale-[101%] transform transition-all duration-200 ease-in-out-expo w-full flex cursor-pointer ">
                 <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-400 flex-shrink-0">
                   <Image
                     src="https://xsgames.co/randomusers/avatar.php?g=male"
@@ -210,6 +217,11 @@ const Posts = () => {
           </div>
         </div>
       </div>
+      {/* Create post  */}
+      <CreatePost
+        isCreatePostOpen={isCreatePostOpen}
+        setIsCreatePostOpen={setIsCreatePostOpen}
+      />
     </div>
   );
 };

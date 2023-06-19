@@ -24,6 +24,7 @@ module.exports = {
         'light-gray': '#DADADA',
         'light-red': '#FFF9FA',
         dot: '#4bcdbc',
+        brown: '#949494',
       },
       backgroundImage: {
         'signup-banner': "url('../assets/signupbanner.png')",

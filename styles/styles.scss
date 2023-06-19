@@ -1,0 +1,85 @@
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+
+    &.ProseMirror-selectednode {
+      outline: 3px solid #68cef8;
+    }
+  }
+
+  ul,
+  ol {
+    padding: 0 1.5rem;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    font-family: 'graphik-semibold';
+  }
+
+  li {
+    margin: 0.5em 0;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+  background: #fff;
+  min-height: 5rem;
+  outline: none;
+}
+
+ul {
+  padding: 0 1.5rem;
+  list-style: disc;
+}
+
+ol {
+  padding: 0 1.5rem;
+  list-style: decimal;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+ol li {
+  margin: 1em 0;
+}
+
+ol li:last-child {
+  margin-bottom: 0;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #aaa;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
