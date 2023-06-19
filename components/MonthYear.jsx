@@ -1,5 +1,4 @@
 import React from 'react';
-import { set } from 'react-hook-form';
 
 const MonthYear = ({ period, setPeriod, label }) => {
   const handlePeriod = (value) => {
