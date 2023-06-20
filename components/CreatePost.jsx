@@ -32,9 +32,11 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState(authorList[0]);
+  const [description, setDescription] = useState('');
+
   const [community, setCommunity] = useState('Select community');
   const [community2, setCommunity2] = useState('Select topic');
-  const [description, setDescription] = useState('');
+
   const [isAuthorDropdownOpen, setIsAuthorDropdownOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
   const [isCommunityDropdownOpen2, setIsCommunityDropdownOpen2] =
@@ -55,6 +57,14 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
     createAt: new Date().toLocaleString(),
   };
 
+  const clearPost = () => {
+    setTitle('');
+    setAuthor(authorList[0]);
+    setCommunity('Select community');
+    setCommunity2('Select topic');
+    setDescription('');
+  };
+
   const handelPost = () => {
     setTimeout(() => {
       if (
@@ -68,7 +78,9 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
       }
 
       dispatch(postsActions.addPost(postObj));
-      console.log(postObj);
+      console.log(description);
+      clearPost();
+      console.log(description);
       toast.success('Post created successfully');
       setIsCreatePostOpen(false);
     }, 100);
@@ -79,6 +91,7 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
       className={`min-w-screen min-h-screen w-full h-full fixed top-0 left-0 bg-black/50  z-[200] flex items-center justify-center transform  mobile-lg:px-[6rem] ${
         isCreatePostOpen ? ' scale-[100%] opacity-[100]' : ' scale-0 opacity-0'
       }`}>
+      <Toaster />
       <div
         className={`block mobile-lg:rounded-lg min-h-screen min-w-screen mobile-lg:min-h-fit   mobile-lg:max-w-[64rem] w-full  transform duration-[300ms] bg-white overflow-x-hidden ${
           isCreatePostOpen
@@ -87,7 +100,6 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
         }`}>
         <div className="block mobile-lg:rounded-lg p-[1rem] bg-white mobile-lg:max-w-[64rem] w-full  max-h-screen overflow-y-auto ">
           <div className="h-full w-full lg:pt-[1.75rem] lg:px-[2.75rem] pb-[2rem] relative bg-white">
-            <Toaster />
             {/* closing */}
             <div
               onClick={() => setIsCreatePostOpen(false)}
@@ -266,8 +278,6 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
             <div className="w-full h-full pt-2 lg:pt-[10px] pb-[20px] px-[1.5rem] lg:px-0">
               <Tiptap setDescription={setDescription} handelPost={handelPost} />
             </div>
-
-            {/* Footer */}
           </div>
         </div>
       </div>

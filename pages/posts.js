@@ -20,7 +20,6 @@ const Posts = () => {
   const [isHover, setIsHover] = useState(false);
 
   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
-
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
   const { posts, TrendingPostData } = useSelector((state) => state.posts);
@@ -220,6 +219,7 @@ const Posts = () => {
         </div>
       </div>
       {/* Create post  */}
+
       <CreatePost
         isCreatePostOpen={isCreatePostOpen}
         setIsCreatePostOpen={setIsCreatePostOpen}

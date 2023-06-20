@@ -3,10 +3,9 @@ import TextStyle from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
 import Placeholder from '@tiptap/extension-placeholder';
 import { EditorContent, useEditor } from '@tiptap/react';
-// import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
 import StarterKit from '@tiptap/starter-kit';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import Link from '@tiptap/extension-link';
 import {
   FaBold,
@@ -22,7 +21,7 @@ const Tiptap = ({ setDescription, handelPost }) => {
   const editor = useEditor({
     extensions: [
       Placeholder.configure({
-        placeholder: ({ node }) => {
+        placeholder: () => {
           return 'Add a description or link (optional)';
         },
       }),
@@ -45,7 +44,6 @@ const Tiptap = ({ setDescription, handelPost }) => {
     content: '',
     onUpdate: ({ editor }) => {
       setDescription(editor.getHTML());
-      console.log(editor.getHTML());
     },
   });
 
@@ -165,7 +163,7 @@ const Tiptap = ({ setDescription, handelPost }) => {
           </div>
         </div>
         <button
-          onClick={handelPost}
+          onClick={() => handelPost()}
           className="py-[10px] hidden lg:block w-fit  px-14 text-[0.875rem] rounded font-semibold bg-primary-button text-primary-text hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
           Post
         </button>

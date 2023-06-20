@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import SaveOutlineButton from '@/components/SaveOutlineButton';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postsActions } from '@/store/posts-slice';
 
 const JobsCard = ({
