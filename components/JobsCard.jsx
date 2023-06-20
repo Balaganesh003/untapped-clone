@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import SaveOutlineButton from '@/components/SaveOutlineButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { postsActions } from '@/store/posts-slice';
 
 const JobsCard = ({
   role,
@@ -10,12 +12,19 @@ const JobsCard = ({
   remote,
   logo,
   no_of_applicants,
-
+  wholeCard,
   setIsModalOpen,
 }) => {
+  const dispatch = useDispatch();
+
+  const handelClick = () => {
+    setIsModalOpen(true);
+    dispatch(postsActions.setSelectedCard(wholeCard));
+  };
+
   return (
     <div
-      onClick={() => setIsModalOpen(true)}
+      onClick={() => handelClick()}
       className="w-full  bg-white p-[0.9375rem] rounded border border-gray-border hover:shadow-card text-primary-text cursor-pointer group overflow-hidden ">
       {/* Logo and applicants */}
       <div className="flex justify-between flex-col flex-grow-1 h-full">

@@ -25,6 +25,8 @@ module.exports = {
         'light-red': '#FFF9FA',
         dot: '#4bcdbc',
         brown: '#949494',
+        'light-purple': '#F0e6FF',
+        'dark-green': '#001E1E',
       },
       backgroundImage: {
         'signup-banner': "url('../assets/signupbanner.png')",
@@ -39,6 +41,7 @@ module.exports = {
       screens: {
         'mobile-md': '440px',
         'mobile-lg': '512px',
+        'tablet-lg': '880px',
       },
       boxShadow: {
         nav: '0 2px 8px rgba(0, 0, 0, 0.16)',

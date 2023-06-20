@@ -89,6 +89,7 @@ const JobsList = [
     remote: true,
     logo: DegreedLogo,
     no_of_applicants: 12,
+    posted_on: '2023-04-20T04:05:25.008Z',
   },
   {
     id: 2,
@@ -99,6 +100,7 @@ const JobsList = [
     remote: true,
     logo: DiscordLogo,
     no_of_applicants: 100,
+    posted_on: '2023-05-20T04:05:25.008Z',
   },
   {
     id: 3,
@@ -109,6 +111,7 @@ const JobsList = [
     remote: true,
     logo: CanalLogo,
     no_of_applicants: 50,
+    posted_on: '2023-06-20T04:05:25.008Z',
   },
   {
     id: 4,
@@ -119,6 +122,7 @@ const JobsList = [
     remote: true,
     logo: DegreedLogo,
     no_of_applicants: 12,
+    posted_on: '2023-01-20T04:05:25.008Z',
   },
   {
     id: 5,
@@ -129,6 +133,7 @@ const JobsList = [
     remote: true,
     logo: DiscordLogo,
     no_of_applicants: 10,
+    posted_on: '2023-02-20T04:05:25.008Z',
   },
   {
     id: 6,
@@ -139,6 +144,7 @@ const JobsList = [
     remote: true,
     logo: CanalLogo,
     no_of_applicants: 3,
+    posted_on: '2023-03-20T04:05:25.008Z',
   },
 ];
 

@@ -140,7 +140,7 @@ const initialPostsState = {
     },
   ],
 
-  selectedPost: null,
+  selectedCard: null,
 };
 
 const postsSlice = createSlice({
@@ -154,6 +154,10 @@ const postsSlice = createSlice({
       state.selectedPost = state.posts.find(
         (post) => post.id === action.payload
       );
+    },
+
+    setSelectedCard(state, action) {
+      state.selectedCard = action.payload;
     },
 
     toggleLike(state, action) {

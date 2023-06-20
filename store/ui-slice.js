@@ -4,8 +4,6 @@ const initialState = {
   isSidebarOpen: false,
   isSearchOpen: false,
   isCreatePostOpen: false,
-  isCreateCommunityOpen: false,
-  isCreateCommunitySuccessOpen: false,
 };
 
 const uiSlice = createSlice({
@@ -14,6 +12,9 @@ const uiSlice = createSlice({
   reducers: {
     toggleSidebar(state) {
       state.isSidebarOpen = !state.isSidebarOpen;
+    },
+    toggleJobsModal(state) {
+      state.isJobsModalOpen = !state.isJobsModalOpen;
     },
   },
 });

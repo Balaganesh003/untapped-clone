@@ -138,6 +138,7 @@ const JobsAndCompanies = ({
                 stage={card?.stage}
                 employees={card?.employees}
                 setIsModalOpen={setIsModalOpen}
+                wholeCard={card}
               />
             ))}
           </div>
