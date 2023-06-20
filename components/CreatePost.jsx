@@ -2,16 +2,12 @@
 import React from 'react';
 import Tiptap from './Tiptap';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { createRef } from 'react';
 import Image from 'next/image';
 import CrossLogo from '@/assets/crossLogo.svg';
 import DownArrow from '@/assets/GrayDownArrow.svg';
 import { useDispatch } from 'react-redux';
 import { postsActions } from '../store/posts-slice';
 import toast, { Toaster } from 'react-hot-toast';
-
-import GrayCrossLogo from '@/assets/crossLogoGray.svg';
 
 const authorList = [
   {
@@ -34,12 +30,10 @@ const communityList2 = ['General', 'Events'];
 
 const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
   const dispatch = useDispatch();
-  const titleRef = createRef();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState(authorList[0]);
   const [community, setCommunity] = useState('Select community');
   const [community2, setCommunity2] = useState('Select topic');
-  const [checked, setChecked] = useState(false);
   const [description, setDescription] = useState('');
   const [isAuthorDropdownOpen, setIsAuthorDropdownOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
@@ -66,7 +60,8 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
       if (
         title === '' ||
         description === '' ||
-        community === 'Select a community'
+        community === 'Select a community' ||
+        community2 === 'Select topic'
       ) {
         toast.error('Please fill all the fields');
         return;
@@ -78,10 +73,6 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
       setIsCreatePostOpen(false);
     }, 100);
   };
-
-  useEffect(() => {
-    titleRef.current.focus();
-  }, []);
 
   return (
     <div
@@ -96,6 +87,7 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
         }`}>
         <div className="block mobile-lg:rounded-lg p-[1rem] bg-white mobile-lg:max-w-[64rem] w-full  max-h-screen overflow-y-auto ">
           <div className="h-full w-full lg:pt-[1.75rem] lg:px-[2.75rem] pb-[2rem] relative bg-white">
+            <Toaster />
             {/* closing */}
             <div
               onClick={() => setIsCreatePostOpen(false)}
@@ -165,7 +157,9 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
                     )}
                   </div>
                 </div>
-                <button className="py-[8px] lg:hidden block w-fit  px-6 text-[0.875rem] rounded font-semibold bg-primary-button text-primary-text hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer ">
+                <button
+                  onClick={handelPost}
+                  className="py-[8px] lg:hidden block w-fit  px-6 text-[0.875rem] rounded font-semibold bg-primary-button text-primary-text hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer ">
                   Post
                 </button>
               </div>
@@ -260,7 +254,6 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
 
             <div className="pb-[0.5rem] w-full rounded-md px-[1.5rem] lg:px-0">
               <input
-                ref={titleRef}
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
@@ -271,7 +264,7 @@ const CreatePost = ({ setIsCreatePostOpen, isCreatePostOpen }) => {
 
             {/* Body */}
             <div className="w-full h-full pt-2 lg:pt-[10px] pb-[20px] px-[1.5rem] lg:px-0">
-              <Tiptap setDescription={setDescription} />
+              <Tiptap setDescription={setDescription} handelPost={handelPost} />
             </div>
 
             {/* Footer */}

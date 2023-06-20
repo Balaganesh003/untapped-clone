@@ -33,6 +33,8 @@ const Posts = () => {
     observer.observe(targetRef.current);
   }, []);
 
+  useEffect(() => {}, [posts]);
+
   return (
     <div className="bg-primary">
       <div className="">
@@ -185,7 +187,7 @@ const Posts = () => {
             {/* Postcard */}
             <div className="">
               {posts.map((post) => (
-                <PostCard key={post.id} post={post} />
+                <PostCard key={post.id * 9} post={post} />
               ))}
             </div>
           </div>

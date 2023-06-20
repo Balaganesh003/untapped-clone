@@ -18,7 +18,7 @@ import {
   FaImage,
 } from 'react-icons/fa';
 
-const Tiptap = ({ setDescription }) => {
+const Tiptap = ({ setDescription, handelPost }) => {
   const editor = useEditor({
     extensions: [
       Placeholder.configure({
@@ -76,10 +76,6 @@ const Tiptap = ({ setDescription }) => {
       editor.chain().focus().setImage({ src: url }).run();
     }
   }, [editor]);
-
-  const handlePost = () => {
-    console.log(editor.getHTML());
-  };
 
   if (!editor) {
     return null;
@@ -169,7 +165,7 @@ const Tiptap = ({ setDescription }) => {
           </div>
         </div>
         <button
-          onClick={handlePost}
+          onClick={handelPost}
           className="py-[10px] hidden lg:block w-fit  px-14 text-[0.875rem] rounded font-semibold bg-primary-button text-primary-text hover:bg-secondary-button hover:-translate-y-0.5  hover:shadow-button ease-in-out-expo transform transition-transform duration-150 cursor-pointer">
           Post
         </button>
